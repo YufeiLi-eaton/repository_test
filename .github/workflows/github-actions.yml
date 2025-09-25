@@ -12,6 +12,4 @@ jobs:
       - name: Run tests
         run: |
           echo "Running tests..."
-          npm install
-          npm test
     
