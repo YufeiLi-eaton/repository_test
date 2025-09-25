@@ -1,0 +1,17 @@
+on:
+    pull_request:
+      branches: [ "main" ]
+    merge_group:
+      branches: ["main"]
+      types: [checks_requested]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          npm install
+          npm test
+    
