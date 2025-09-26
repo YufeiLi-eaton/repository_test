@@ -4,7 +4,7 @@ on:
       branches: [ main ]
 
 jobs:
-  build-and-test:
+  checksRequired:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
