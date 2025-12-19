@@ -1,0 +1,21 @@
+
+name: build-linux
+on:
+  workflow_dispatch:
+  push:
+    branches: [ features/buildScript ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm i -g pkg
+      - run: pkg -t node18-linux-x64 -o my-app bundle.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-app-linux-x64
+          path: my-app
