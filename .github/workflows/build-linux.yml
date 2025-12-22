@@ -17,5 +17,5 @@ jobs:
       - run: pkg -t node18-linux-arm64 -o my-app bundle.js
       - uses: actions/upload-artifact@v4
         with:
-          name: my-app-linux-x64
+          name: my-app-linux-arm64
           path: my-app
