@@ -1,0 +1,12 @@
+
+{
+    "name": "repository_test",
+    "version": "1.0.0",
+    "bin": "bundle.js",
+    "type": "commonjs",
+    "pkg": {
+      "targets": ["node18-linux-arm64"],
+      "outputPath": "dist"
+    }
+  }
+  

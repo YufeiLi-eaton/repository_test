@@ -13,9 +13,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - run: npm i -g pkg
-      - run: pkg -t node18-linux-arm64 -o my-app bundle.js
+      - name: install pkg      
+        run: npm i -g pkg
+      - name: package for arm64
+        run: |
+            test -f bundle.js || (echo "bundle.js 不在仓库根目录" && exit 1)
+            test -f package.json || (echo "缺少 package.json（需声明 bin）" && exit 1)
+            pkg .        # <== 用 package.json 的 bin + pkg.targets
+            ls -al dist || true
+            test -f dist/repository_test || (echo "产物未生成" && exit 1)
+
       - uses: actions/upload-artifact@v4
         with:
           name: my-app-linux-arm64
-          path: my-app
+          path: dist/repository_test
