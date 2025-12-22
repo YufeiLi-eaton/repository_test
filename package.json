@@ -6,7 +6,8 @@
     "type": "commonjs",
     "pkg": {
       "targets": ["node18-linux-arm64"],
-      "outputPath": "dist"
+      "outputPath": "dist",
+      "assets": ["bundle.js"]
     }
   }
   
